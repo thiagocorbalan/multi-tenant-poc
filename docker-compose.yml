@@ -1,0 +1,63 @@
+version: '3'
+
+services:
+    api:
+      build:
+        context: .
+      image: multi-tenance/api
+      container_name: multi_tenance_api
+      volumes:
+        - ./src:/tmp/app/src
+      ports:
+        - "3000:3000"
+    db_main:
+      build:
+        context: ./database
+        target: main
+      image: multi-tenance/db_main
+      container_name: db_main
+      volumes:
+      - db_main:/var/lib/postgresql/data
+      ports:
+      - "5432:5432"
+      restart:
+        always
+    db_tenance1:
+      build:
+        context: ./database
+        target: tenance1
+      image: multi-tenance/db_tenance1
+      container_name: db_tenance1
+      volumes:
+      - db_tenance1:/var/lib/postgresql/data
+      ports:
+      - "5433:5432"
+      restart:
+        always
+    db_tenance2:
+      build:
+        context: ./database
+        target: tenance2
+      image: multi-tenance/db_tenance2
+      container_name: db_tenance2
+      volumes:
+      - db_tenance2:/var/lib/postgresql/data
+      ports:
+      - "5434:5432"
+      restart:
+        always
+      networks:
+        - development
+
+networks:
+  default:
+    external:
+      name: dds
+  development:
+    external:
+      name: development
+
+volumes:
+  db_main:
+  db_tenance1:
+  db_tenance2:
