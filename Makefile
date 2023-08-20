@@ -1,6 +1,9 @@
 start: stop build
 	@echo "Start services..."
-	@docker-compose up
+	@docker-compose up -d
+
+logs:
+	@docker-compose logs -f
 
 stop:
 	@echo "Stop containers..."
