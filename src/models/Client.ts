@@ -1,8 +1,5 @@
-import sequelize from "sequelize";
-import { sequelizeConnectionMain } from "./../db/config";
-
+import sequelize, { Sequelize } from "sequelize";
 const { Model, DataTypes } = sequelize;
-
 
 class Client extends Model {
 	id: number;
@@ -10,8 +7,7 @@ class Client extends Model {
 	email: string;
 };
 
-
-export default (sequelizeConnection) => {
+export default (sequelize: Sequelize) => {
 	Client.init({
 		id: {
 			type: DataTypes.INTEGER,
@@ -23,7 +19,7 @@ export default (sequelizeConnection) => {
 	}, {
 		tableName: 'CLIENT',
 		timestamps: false,
-		sequelize: sequelizeConnection
+		sequelize
 	});
 
 	return Client;
