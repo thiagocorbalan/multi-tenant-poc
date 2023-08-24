@@ -1,21 +1,20 @@
 {
   "compilerOptions": {
-		"alwaysStrict": true,
-		"moduleResolution":"node",
-		"outDir": "./build",
-		"rootDir": "./src",
-		"sourceMap": true,
-		"strictFunctionTypes": true,
-		"strictNullChecks": true,
-    "baseUrl": "./src",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "ES2022",
-    "strict": true,
-		"noImplicitAny": true,
-		"noImplicitThis": true,
-		"removeComments": true,
-		"noImplicitReturns": true,
+	"alwaysStrict": true,
+	"moduleResolution":"node",
+	"outDir": "./build",
+	"rootDir": "./src",
+	"sourceMap": true,
+	"strictFunctionTypes": true,
+	"strictNullChecks": true,
+	"baseUrl": "./src",
+	"esModuleInterop": true,
+	"forceConsistentCasingInFileNames": true,
+	"module": "ES2022",
+	"removeComments": true,
+	"noImplicitReturns": true,
+	"emitDecoratorMetadata": true,
+	"experimentalDecorators": true
   },
 	"ts-node": {
 		"esm": true,
@@ -24,5 +23,5 @@
 	"exclude": [
 		"./node_modules/*",
 		"build"
-	]
+	],
 }

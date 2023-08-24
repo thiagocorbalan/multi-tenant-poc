@@ -1,5 +1,5 @@
-import express, { Express, Request, Response } from 'express'
 import bodyParser from 'body-parser';
+import express, { Express } from 'express';
 import Routes from './routes';
 
 const app:Express = express();
