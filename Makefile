@@ -9,6 +9,8 @@ stop:
 	@echo "Stop containers..."
 	@docker-compose down --remove-orphans
 
+restart: stop start logs
+
 build:
 	@echo "Building images..."
 	@docker-compose build

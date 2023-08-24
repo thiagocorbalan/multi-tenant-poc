@@ -14,7 +14,8 @@
 	"removeComments": true,
 	"noImplicitReturns": true,
 	"emitDecoratorMetadata": true,
-	"experimentalDecorators": true
+	"experimentalDecorators": true,
+	"target": "ES6",
   },
 	"ts-node": {
 		"esm": true,

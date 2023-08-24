@@ -1,8 +1,7 @@
+import Clients from './controllers/Clients';
 import * as dotenv from 'dotenv';
 import express, { NextFunction, Request, Response } from "express";
 import * as url from 'url';
-import { DBMain } from "./data-source";
-import { Client } from "./entity/Client";
 dotenv.config();
 
 const router = express.Router();
@@ -22,11 +21,6 @@ router.get('/logout', (req: Request, res: Response) => {
   res.send({msg: 'Logout'})
 })
 
-router.get('/clients', async (req: Request, res: Response) => {
-	const clientRepository = DBMain.getRepository(Client);
-
-	const result = await clientRepository.find();
-	res.send(result);
-})
+router.get('/clients', Clients.index);
 
 export default router;
