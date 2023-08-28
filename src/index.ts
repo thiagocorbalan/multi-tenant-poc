@@ -8,6 +8,10 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json())
 app.use(Routes);
 
+app.get('/', (req, res) => {
+	res.send('Hello World');
+})
+
 app.listen(port, () => {
 	console.log(`Express It's running on port ${port}`);
 })

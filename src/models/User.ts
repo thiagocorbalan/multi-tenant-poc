@@ -1,17 +1,31 @@
-import { DataTypes, Sequelize } from "sequelize";
+import sequelize from "sequelize";
+const { Model, DataTypes } = sequelize;
 
-export default (sequelize: Sequelize) => {
-	const user = sequelize.define('USER', {
-		id: {
-			type: DataTypes.INTEGER,
-			primaryKey: true,
-			autoIncrement: true,
-		},
-		name: DataTypes.STRING,
-		email: DataTypes.STRING,
-		password: DataTypes.STRING,
-		tenant: DataTypes.INTEGER
-	}, { tableName: 'USER', timestamps: false });
+import { sequelizeConnectionMain } from '../db/config';
 
-	return user;
-}
+
+class User extends Model {
+	id: number;
+	name: string;
+	email: string;
+	password: string;
+	tenant: number;
+};
+
+User.init({
+	id: {
+		type: DataTypes.INTEGER,
+		primaryKey: true,
+		autoIncrement: true,
+	},
+	name: DataTypes.STRING,
+	email: DataTypes.STRING,
+	password: DataTypes.STRING,
+	tenant: DataTypes.INTEGER
+}, {
+	sequelize: sequelizeConnectionMain,
+	tableName: 'USER',
+	timestamps: false
+});
+
+export default User;

@@ -1,28 +1,26 @@
 {
-  "compilerOptions": {
-	"alwaysStrict": true,
-	"moduleResolution":"node",
-	"outDir": "./build",
-	"rootDir": "./src",
-	"sourceMap": true,
-	"strictFunctionTypes": true,
-	"strictNullChecks": true,
-	"baseUrl": "./src",
-	"esModuleInterop": true,
-	"forceConsistentCasingInFileNames": true,
-	"module": "ES2022",
-	"removeComments": true,
-	"noImplicitReturns": true,
-	"emitDecoratorMetadata": true,
-	"experimentalDecorators": true,
-	"target": "ES6",
-  },
+	"compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "declaration": true,
+    "strict": true,
+    "importHelpers": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+		"strictPropertyInitialization": false,
+		"noImplicitAny": false,
+    "sourceMap": true,
+		"outDir": "./dist/tsc/",
+    "types": ["node"],
+    "lib": ["ES6"]
+	},
 	"ts-node": {
 		"esm": true,
 		"compiler": "typescript"
 	},
-	"exclude": [
-		"./node_modules/*",
-		"build"
-	],
+	"include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }
