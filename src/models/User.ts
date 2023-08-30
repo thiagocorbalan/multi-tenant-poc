@@ -1,29 +1,26 @@
-import sequelize from "sequelize";
-const { Model, DataTypes } = sequelize;
-
-import { sequelizeConnectionMain } from '../db/config';
-
+import Sequelize, { Model } from 'sequelize';
+import { databaseMain } from './../database';
 
 class User extends Model {
-	id: number;
-	name: string;
-	email: string;
-	password: string;
-	tenant: number;
+	public id!: number;
+	public name!: string;
+	public email!: string;
+	public password!: string;
+	public tenant!: number;
 };
 
 User.init({
 	id: {
-		type: DataTypes.INTEGER,
+		type: Sequelize.INTEGER,
 		primaryKey: true,
 		autoIncrement: true,
 	},
-	name: DataTypes.STRING,
-	email: DataTypes.STRING,
-	password: DataTypes.STRING,
-	tenant: DataTypes.INTEGER
+	name: Sequelize.STRING,
+	email: Sequelize.STRING,
+	password: Sequelize.STRING,
+	tenant: Sequelize.INTEGER
 }, {
-	sequelize: sequelizeConnectionMain,
+	sequelize: databaseMain.connection,
 	tableName: 'USER',
 	timestamps: false
 });

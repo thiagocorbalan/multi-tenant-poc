@@ -19,8 +19,10 @@
 	},
 	"ts-node": {
 		"esm": true,
-		"compiler": "typescript"
+		"compiler": "typescript",
+		"files": true
 	},
-	"include": ["src/**/*"],
+	"include": ["./src"],
+	"files": ["./src/index.ts"],
   "exclude": ["node_modules"]
 }
